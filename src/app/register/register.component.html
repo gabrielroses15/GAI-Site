@@ -1,0 +1,31 @@
+<h2>Insira os dados para o registro do funcionário:</h2>
+
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" ngModel required>
+  <br><br>
+
+  <label for="cpf">CPF:</label>
+  <input type="text" id="cpf" name="cpf" maxlength="11" ngModel required>
+  <br><br>
+
+  <label for="admissao">Admissão:</label>
+  <input type="text" id="admissao" name="admissao" ngModel required>
+  <br><br>
+
+  <label for="cc">Centro de Custo:</label>
+  <select id="cc" name="cc">
+    <option value="Obra principal">Obra principal</option>
+    <option value="Administração">Administração</option>
+    <option value="Exemplo1">Exemplo1</option>
+    <option value="Exemplo2">Exemplo2</option>
+    <option value="Exemplo3">Exemplo3</option>
+  </select>
+  <br><br>
+
+  <button type="submit" [disabled]="!registerForm.valid">Enviar</button>
+</form>
+
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+<p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>
+<p id="apiMessage" style="color: black;">{{ apiMessage }}</p>
